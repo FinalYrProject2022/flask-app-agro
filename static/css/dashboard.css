@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Acme&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body {
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #A3EBB1;
+  background-attachment: fixed;
+  font-family: 'Montserrat', sans-serif;
+  color: #a47972;
+}
+
+.hide-underline {
+  text-decoration: none !important;
+  color: #a47972 !important;
+}
+
+.navbar {
+  background-color: #A3EBB1;
+}
+
+.navbar-brand {
+  margin-left: 20px;
+}
+
+.nav-link {
+  font-weight: 800;
+  color: #a47972 !important;
+  font-size: 20px;
+  padding-left: 25px !important;
+}
+
+.nav-link:hover {
+  color: black !important;
+}
+
+.dark-mode {
+  background-color: #43534D !important;
+}
+
+.animation-block {
+  animation: transitionImage 5s;
+}
+
+@keyframes transitionImage {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+
+}
+
+#animation-text-1,
+#animation-text-2 a {
+  margin-top: 20px;
+  font-size: 40px;
+  font-family: 'Acme', sans-serif;
+  color: #a47972;
+  text-decoration: none;
+}
+
+#animation-text-2 a {
+  -webkit-transition: color 2s;
+  transition: color 0.75s;
+  border-style: solid;
+  border-radius: 20px;
+  padding: 8px 14px;
+}
+
+#animation-text-2 a:hover {
+  letter-spacing: 1px;
+  color: black;
+  border-style: solid;
+}
+
+.user-name {
+  color: cornflowerblue;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.main-content-chilli {
+  background-color: honeydew;
+  padding: 10px 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 20px !important;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+.main-content-brinjal {
+  background-color: honeydew;
+  padding: 10px 5px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 20px !important;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  display: none;
+}
+
+h2 {
+  font-family: 'Acme', sans-serif;
+}
+
+@media only screen and (max-width: 560px) {
+  .main-content {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}
+
+.temp-hum-images {
+  width: 55%;
+}
+
+.hum-image {
+  width: 100%;
+}
+
+.temp-hum {
+  background-color: yellow;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.temp-hum-text {
+  font-weight: 1000 !important;
+  font-size: 20px;
+  letter-spacing: 2px !important;
+}
+
+.plant-details {
+  background-color: aqua;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.temp-hum-images:hover {
+  -moz-transform: scale(2.05);
+  -webkit-transform: scale(3.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.35);
+}

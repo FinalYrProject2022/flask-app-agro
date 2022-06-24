@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+body {
+    text-align: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #A3EBB1;
+    background-attachment: fixed;
+    font-family: 'Montserrat', sans-serif;
+    color: #a47972;
+}
+
+.formInput {
+    margin-top: 4%;
+}

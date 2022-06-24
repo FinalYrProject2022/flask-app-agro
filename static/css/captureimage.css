@@ -1,0 +1,44 @@
+body {
+    text-align: center;
+    background-image: url('/static/images/signup_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #A3EBB1;
+    background-attachment: fixed;
+    color: black;
+}
+
+.form-control {
+    border-radius: 15px;
+    /* width: 30%; */
+    margin: auto;
+    margin-top: 4%;
+    background-color: lightgreen;
+}
+
+.btn {
+    border-radius: 15px;
+}
+
+.output_image {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.outline-box {
+    margin: auto;
+    text-align: center !important;
+    border-radius: 15px;
+    max-width: 550px;
+    background-color: azure;
+    box-shadow: 0 0 10px #18A558;
+}
+
+h3 {
+    font-size: 15px;
+    font-weight: 300;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}

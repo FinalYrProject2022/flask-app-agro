@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body{
+    text-align: center;
+    background-color:  #A3EBB1;
+    font-family: 'Lobster', cursive;
+  padding-top: 3%;
+  padding-left: 5%;
+  padding-right:5% ;
+}
+
+img{
+    width: 100%;
+}
+
+.row{
+    border-radius: 20px;
+    margin: 0px !important;
+    padding: 10px;
+    box-shadow: 0 0 10px #18A558;
+}
+
+
+.col{
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+.container{
+    text-align: center !important;
+    padding: 10px;
+    border-radius: 15px;
+    width: 350px;
+    margin-top: 18%;
+    margin-bottom: 17%;
+}
+
+.form-signin {
+  max-width: 350px;
+}
+
+.login-text{
+    font-style: 800;
+}
+
+input[type=text],[type=email],[type=password] {
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid black;
+}
+
+.btn-lg{
+    background: #18A558;
+    border-radius: 25px;
+    box-shadow: 3px 3px 10px #aaaaaa;
+    border: none;
+}
+
+@media (max-width: 479px){
+    .container{
+        width: 90%;
+    }
+
+    .form-signin {
+        max-width: 100%;
+     }
+    .row{
+        margin-top: 35% !important;
+    }
+}
+
+@media (max-width: 760px){
+    .row{
+        margin-top: 40% !important;
+    }
+}

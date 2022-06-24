@@ -1,0 +1,7 @@
+keras == 2.8.0
+matplotlib == 3.2.2
+numpy == 1.21.6
+sklearn == 1.0.2
+tensorflow_hub
+flask
+opencv

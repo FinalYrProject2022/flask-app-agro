@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="/static/css/signup.css">
+    <title>AGRICULTURE APP</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+        <main class="form-signin">
+            <form action="/signup_data" method="post">
+                <h2 class="login-text">Sign up</h2>
+
+                <input type="text" name="name" class="form-control" placeholder="Full Name" required autofocus>
+                <br>
+                <input type="email" name="email" class="form-control" placeholder="Email Address" required autofocus>
+                <br>
+                <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                    required autofocus>
+                <br>
+                <input type="password" name="confirm_password" id="confirm_password" class="form-control"
+                    placeholder="Confirm Password" required autofocus>
+                <p style="float: right;">Show Password : <input type="checkbox" onclick="myFunction()" id="showpaswd">
+                </p>
+                <br>
+                <input type="number" name="phnumber" class="form-control" placeholder="Phone Number" required autofocus>
+                <br>
+
+                <button class="w-100 btn btn-lg btn-secondary">Sign Up</button>
+            </form>
+        </main>
+        <p>Already have an account ? <a href="/signin">Sign in</a></p>
+
+    </div>
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        function myFunction()
+        {
+            var x = document.getElementById("password");
+            var y = document.getElementById("confirm_password");
+            if (x.type === "password")
+            {
+                x.type = "text";
+                y.type = "text";
+            } else
+            {
+                x.type = "password";
+                y.type = "password";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

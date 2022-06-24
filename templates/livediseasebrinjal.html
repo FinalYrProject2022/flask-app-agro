@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <link rel="stylesheet" href="/static/css/livedisease.css">
+    <title>AGRICULTURE APP</title>
+</head>
+
+<body>
+
+    <h2>BRINJAL DISEASE DETECTION</h2>
+    <div style="text-align: center;">
+        <button type="button" class="btn btn-primary" onclick="init()">Start</button>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6" id="cam">
+            <div id="webcam-container"></div>
+        </div>
+
+        <div class="col-md-6">
+
+            <div class="bar-graph-holder">
+                <div class="class-names">HEALTHY BRINJAL </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped healthy-brinjal">
+                    </div>
+                </div>
+            </div><br>
+            <div class="bar-graph-holder">
+                <h3 class="class-names">BACTERIAL WILT </h3>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped bacterial-wilt">
+                    </div>
+                </div>
+            </div><br>
+            <div class="bar-graph-holder">
+                <div class="class-names">LEAF SPOTS </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped leaf-spots">
+                    </div>
+                </div>
+            </div><br>
+            <div class="bar-graph-holder">
+                <h3 class="class-names">MAGNESSIUM DEFFICIENCY </h3>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped mag-deffi">
+                    </div>
+                </div>
+            </div><br>
+            <div class="bar-graph-holder">
+                <div class="class-names">NITOROGEN DEFFICIENCY </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped nitro-deffi">
+                    </div>
+                </div>
+            </div><br>
+            <div class="bar-graph-holder">
+                <div class="class-names">PEST ATTACK </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped pest-attack">
+                    </div>
+                </div>
+            </div><br>
+            <div class="bar-graph-holder">
+                <div class="class-names">JASSIDS </div>
+                <div class="progress">
+                    <div class="progress-bar progress-bar-striped jassids">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script type="text/javascript">
+
+        const URL = "https://teachablemachine.withgoogle.com/models/SV5DBkmKJ/";
+
+        let model, webcam, maxPredictions;
+
+        // Load the image model and setup the webcam
+        async function init()
+        {
+            const modelURL = URL + "model.json";
+            const metadataURL = URL + "metadata.json";
+
+            // load the model and metadata
+            // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+            // or files from your local hard drive
+            // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+            model = await tmImage.load(modelURL, metadataURL);
+            maxPredictions = model.getTotalClasses();
+
+            // Convenience function to setup a webcam
+            const flip = true; // whether to flip the webcam
+            webcam = new tmImage.Webcam(350, 350, flip); // width, height, flip
+            await webcam.setup(); // request access to the webcam
+            await webcam.play();
+            window.requestAnimationFrame(loop);
+
+            // append elements to the DOM
+            document.getElementById("webcam-container").appendChild(webcam.canvas);
+
+
+
+        }
+
+        async function loop()
+        {
+            webcam.update(); // update the webcam frame
+            await predict();
+            window.requestAnimationFrame(loop);
+        }
+
+        // run the webcam image through the image model
+        var healthy, wilt, spots, mag, nitro, pest, jass = 0;
+
+        var healthy_brinjal = document.querySelector(".healthy-brinjal");
+        var bacterial_wilt = document.querySelector(".bacterial-wilt");
+        var leaf_spots = document.querySelector(".leaf-spots");
+        var mag_deffi = document.querySelector(".mag-deffi");
+        var nitro_deffi = document.querySelector(".nitro-deffi");
+        var pest_attack = document.querySelector(".pest-attack");
+        var jassids = document.querySelector(".jassids");
+
+        async function predict()
+        {
+            // predict can take in an image, video or canvas html element
+            const prediction = await model.predict(webcam.canvas);
+            for (let i = 0; i < maxPredictions; i++)
+            {
+                healthy = (prediction[0].probability.toFixed(2) * 100);
+                healthy_brinjal.style.width = healthy + "%";
+                healthy_brinjal.innerText = healthy + "%";
+
+                wilt = (prediction[1].probability.toFixed(2) * 100);
+                bacterial_wilt.style.width = wilt + "%";
+                bacterial_wilt.innerText = wilt + "%";
+
+                spots = (prediction[2].probability.toFixed(2) * 100);
+                leaf_spots.style.width = spots + "%";
+                leaf_spots.innerText = spots + "%";
+
+                mag = (prediction[3].probability.toFixed(2) * 100);
+                mag_deffi.style.width = mag + "%";
+                mag_deffi.innerText = mag + "%";
+
+                nitro = (prediction[4].probability.toFixed(2) * 100);
+                nitro_deffi.style.width = nitro + "%";
+                nitro_deffi.innerText = nitro + "%";
+
+                pest = (prediction[5].probability.toFixed(2) * 100);
+                pest_attack.style.width = pest + "%";
+                pest_attack.innerText = pest + "%";
+
+                jass = (prediction[6].probability.toFixed(2) * 100);
+                jassids.style.width = jass + "%";
+                jassids.innerText = jass + "%";
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>

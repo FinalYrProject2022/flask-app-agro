@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+    <title>AGRICULTURE APP</title>
+</head>
+
+<body>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar-color">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/static/images/agrow-logo.png" alt="" width="80" height="80">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Trouble shooting</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " id="mode" href="#" onclick="mode()">Dark Mode</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            User Profile
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Edit Details</a></li>
+                            <li><a class="dropdown-item" href="#">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <div class="container animation-block" style="margin-top: 150px;">
+        <img src="/static/images/polyhouse.png" class="img-fluid">
+        <h1 id="animation-text-1">WELCOME GARDENER</h1>
+        <h1><span class="user-name"><i>JOHN DOE</i></span></h1><br>
+        <h1 id="animation-text-2">
+            <a href="">AGROW APP</a>
+        </h1>
+
+    </div>
+
+
+    <div style="margin-top: 50px;">
+        <p style="font-family: 'Montserrat', sans-serif;">Choose your plant :
+            <select id="mySelect" onclick="displayPlant()">
+                <option selected value="0">Select plant</option>
+                <option value="1">Chilli plant</option>
+                <option value="2">Brinjal Plant</option>
+            </select>
+        </p>
+    </div>
+
+    <h2 id="pp"></h2>
+
+
+    <p id="demo"></p>
+
+    <div class="main-content-chilli" id="chilli-data">
+        <h2 style="margin-top: 30px;">CHILLI PLANT</h2>
+        <p>Belonging to family Solanaceae, chilli or mirchi is botanically called Capsicum annuum</p>
+        <img src="/static/images/chilli_bg.png" class="img-fluid" />
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="row temp-hum">
+                    <div class="col-6">
+                        <img src="/static/images/humidity.png" class="img-fluid temp-hum-images hum-image">
+                    </div>
+                    <div class="col-6">
+                        <div style="margin-top: 30%;"></div>
+                        <span id="hum" class="temp-hum-text"
+                            style="font-family: 'Anton', sans-serif;font-size:25px;"></span>
+                        <span class="temp-hum-text">°C &nbsp; HUMIDITY</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="row temp-hum">
+                    <div class="col-6">
+                        <img src="/static/images/temperature.png" class="img-fluid temp-hum-images ">
+                    </div>
+                    <div class="col-6">
+                        <div style="margin-top: 30%;"></div>
+                        <span id="temp" class="temp-hum-text"
+                            style="font-family: 'Anton', sans-serif;font-size:25px;"></span>
+                        <span class="temp-hum-text">°C &nbsp; TEMPERATURE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md-4">
+                <div class="plant-details">
+                    <h2>SOIL MOISTURE</h2>
+                    <img src="/static/images/soil_moisture.png" class="img-fluid temp-hum-images">
+                    <div class="form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="soil_moisture"
+                            onclick="myFunction()">
+                        <label class="form-check-label" for="soil_moisture"><b id="soil_moisture_text">OFF</b></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a href="/livediseasebrinjal" class="hide-underline">
+                    <div class="plant-details">
+                        <h2>LIVE DISEASE DETCTION</h2><br>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="/livediseasechilli" class="hide-underline">
+                                    <img src="/static/images/chilli_bg.png" class="img-fluid" />
+                                    <button type="button" class="btn btn-light">CHILLI</button>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="/livediseasebrinjal" class="hide-underline">
+                                    <img src="/static/images/brinjal-bg.png" class="img-fluid" />
+                                    <button type="button" class="btn btn-light"
+                                        style="margin-top:20px ;">BRINJAL</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <div class="plant-details">
+                    <h2>PUMP STATUS</h2>
+                    <br><br>
+                    <img src="/static/images/water_pump.png" class="img-fluid temp-hum-images">
+                    <div class="form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="water_pump"
+                            onclick="myFunction()">
+                        <label class="form-check-label" for="water_pump"><b id="water_pump_text">OFF</b></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <a href="/livecamera" class="hide-underline">
+                    <div class="plant-details">
+                        <h2 class="hide-underline">LIVE CAMERA</h2><br>
+                        <img src="/static/images/live_cam.png" class="img-fluid temp-hum-images">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="/captureimage" class="hide-underline">
+                    <div class="plant-details">
+                        <h2 class="hide-underline">CAPTURE IMAGES</h2>
+                        <img src="/static/images/capture_cam.png" class="img-fluid temp-hum-images">
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <div class="plant-details">
+                    <h2 class="hide-underline">GARDEN STATUS</h2>
+                    <img src="/static/images/garden_status.png" class="img-fluid temp-hum-images">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+    <!-- <div class="main-content-brinjal" id="brinjal-data">
+        <h2 style="margin-top: 30px;">BRINJAL PLANT</h2>
+        <p>Eggplant, (Solanum melongena), also called aubergine or Guinea squash, tender perennial plant of the
+            nightshade family (Solanaceae), grown for its edible fruits. </p>
+        <img src="/static/images/brinjal-bg.png" class="img-fluid" />
+        <br><br><br>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="row temp-hum">
+                    <div class="col-6">
+                        <img src="/static/images/humidity.png" class="img-fluid temp-hum-images hum-image">
+                    </div>
+                    <div class="col-6">
+                        <div style="margin-top: 30%;"></div>
+                        <span class="temp-hum-text" style="font-family: 'Anton', sans-serif;font-size:25px;">12</span>
+                        <span class="temp-hum-text">°C &nbsp; HUMIDITY</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <div class="row temp-hum">
+                    <div class="col-6">
+                        <img src="/static/images/temperature.png" class="img-fluid temp-hum-images ">
+                    </div>
+                    <div class="col-6">
+                        <div style="margin-top: 30%;"></div>
+                        <span class="temp-hum-text" style="font-family: 'Anton', sans-serif;font-size:25px;">12</span>
+                        <span class="temp-hum-text">°C &nbsp; TEMPERATURE</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row" style="margin-top: 50px;">
+            <div class="col-md-4">
+                <div class="plant-details">
+                    <h2>SOIL MOISTURE</h2>
+                    <img src="/static/images/soil_moisture.png" class="img-fluid temp-hum-images">
+                    <div class="form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="soil_moisture"
+                            onclick="myFunction()">
+                        <label class="form-check-label" for="soil_moisture"><b id="soil_moisture_text">OFF</b></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="plant-details">
+                    <h2>LIGHT STATUS</h2>
+                    <img src="/static/images/light_status.png" class="img-fluid temp-hum-images">
+                    <div class="form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="light_status"
+                            onclick="myFunction()">
+                        <label class="form-check-label" for="light_status"><b id="light_status_text">OFF</b></label>
+                    </div>
+                    <br>
+                    <label for="myRange" class="form-label">CONTROL THE INTENSITY</label>
+                    <input type="range" class="form-range" min="1" max="100" value="50" id="myRange">
+                    <b id="myRange_text" style="text-align:center;">50</b>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="plant-details">
+                    <h2>PUMP STATUS</h2>
+                    <br><br>
+                    <img src="/static/images/water_pump.png" class="img-fluid temp-hum-images">
+                    <div class="form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="water_pump"
+                            onclick="myFunction()">
+                        <label class="form-check-label" for="water_pump"><b id="water_pump_text">OFF</b></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="plant-details">
+                    <h2>LIVE CAMERA</h2>
+                    <img src="/static/images/live_cam.png" class="img-fluid temp-hum-images">
+                    <div class="form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="live_cam"
+                            onclick="myFunction()">
+                        <label class="form-check-label" for="live_cam"><b id="live_cam_text">OFF</b></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="plant-details">
+                    <h2>CAPTURE IMAGES</h2>
+                    <img src="/static/images/capture_cam.png" class="img-fluid temp-hum-images">
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="plant-details">
+                    <h2>GARDEN STATUS</h2>
+                    <img src="/static/images/garden_status.png" class="img-fluid temp-hum-images">
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+
+
+
+
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+
+    <script>
+        $(document).ready(function ()
+        {
+            $("#animation-text-2").hide();
+            $(window).scroll(function ()
+            {
+                var scroll = $(window).scrollTop();
+
+                if (scroll >= 155)
+                {
+                    $("#animation-text-1").hide();
+
+                } else
+                {
+                    $("#animation-text-2").show();
+                }
+            });
+        });
+    </script>
+
+
+    <script>
+        function mode()
+        {
+            document.body.classList.toggle("dark-mode");
+            var x = document.getElementById("mode");
+            if (x.innerHTML === "Light Mode")
+            {
+                x.innerHTML = "Dark Mode";
+            } else
+            {
+                x.innerHTML = "Light Mode";
+            }
+
+            var modes = document.getElementById("navbar-color");
+            modes.classList.toggle("dark-mode");
+        }
+
+        var lastScrollTop = 0;
+        $(window).scroll(function (event)
+        {
+            var st = $(this).scrollTop();
+            if (st > 200)
+            {
+                // downscroll code
+                var animation_text_1 = document.getElementById("animation-text-1");
+                animation_text_1.style.display = "none"
+
+            } else
+            {
+                // upscroll code
+                var animation_text_2 = document.getElementById("animation-text-2");
+                animation_text_2.style.display = "block";
+            }
+
+        });
+
+        function displayPlant()
+        {
+            var x = document.getElementById("mySelect").value;
+            if (x == "0")
+            {
+                document.getElementById("chilli-data").style.display = "none";
+                document.getElementById("brinjal-data").style.display = "none";
+            }
+            if (x == "1")
+            {
+                document.getElementById("chilli-data").style.display = "block";
+                document.getElementById("brinjal-data").style.display = "none";
+            }
+            if (x == "2")
+            {
+                document.getElementById("chilli-data").style.display = "none";
+                document.getElementById("brinjal-data").style.display = "block";
+            }
+
+        }
+    </script>
+
+    <script>
+
+
+        var slider = document.getElementById("myRange");
+        var output = document.getElementById("myRange_text");
+        output.innerHTML = slider.value;
+
+        slider.oninput = function ()
+        {
+            output.innerHTML = this.value;
+        }
+        function myFunction()
+        {
+
+            var water_pump = document.getElementById("water_pump");
+            var light_status = document.getElementById("light_status");
+            var soil_moisture = document.getElementById("soil_moisture");
+
+
+
+            if (water_pump.checked == true)
+            {
+                document.getElementById("water_pump_text").innerHTML = "ON";
+
+            }
+            if (light_status.checked == true)
+            {
+                document.getElementById("light_status_text").innerHTML = "ON";
+            }
+            if (soil_moisture.checked == true)
+            {
+                document.getElementById("soil_moisture_text").innerHTML = "ON";
+            }
+
+
+            if (water_pump.checked != true)
+            {
+                document.getElementById("water_pump_text").innerHTML = "OFF";
+            }
+            if (light_status.checked != true)
+            {
+                document.getElementById("light_status_text").innerHTML = "OFF";
+            }
+            if (soil_moisture.checked != true)
+            {
+                document.getElementById("soil_moisture_text").innerHTML = "OFF";
+            }
+        }
+    </script>
+
+    <script src="../static/js/temp.js"></script>
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+        </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+</body>
+
+</html>

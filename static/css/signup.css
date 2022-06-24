@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+body{
+    text-align: center;
+    background-image: url('/static/images/signup_bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #A3EBB1;
+    background-attachment: fixed;
+    font-family: 'Lobster', cursive;
+}
+
+img{
+    width: 100%;
+}
+
+
+.container{
+    text-align: center !important;
+    padding: 50px;
+    border-radius: 15px;
+    width: 350px;
+    margin-top: 2%;
+    background-color: #A3EBB1;
+    box-shadow: 0 0 10px #18A558;
+}
+
+.form-signin {
+  max-width: 350px;
+}
+
+.login-text{
+    font-style: 800;
+}
+
+input[type=text],[type=email],[type=password],[type=number] {
+    border: none;
+    background: transparent;
+    border-bottom: 2px solid black;
+}
+
+.btn-lg{
+    background: #18A558;
+    border-radius: 25px;
+    box-shadow: 3px 3px 10px #aaaaaa;
+    border: none;
+}
+
+
+@media (max-width: 479px){
+    .container{
+        width: 90%;
+        margin-top: 50% !important;
+    }
+
+    .form-signin {
+        max-width: 100%;
+     }
+}
+@media (max-width: 1000px){
+    .container{
+        margin-top: 25% !important;
+    }
+
+}
